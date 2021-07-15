@@ -1,6 +1,5 @@
 # Multibind-RTKs
-## Usage
-### Prerequisites
+## Prerequisites
 ```
 pip install scikit-learn
 conda install -y -c rdkit rdkit
@@ -11,6 +10,7 @@ pip install torch-geometric
 conda install -y -c conda-forge jpype1=0.7.5
 conda install -y -c openbabel openbabel=2.4.1
 ```
+## Usage
 ### For Screening Only
 The structure of the `root_dir` should be:
 ```
