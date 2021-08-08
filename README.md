@@ -12,7 +12,7 @@ conda install -y -c openbabel openbabel=2.4.1
 ```
 ## Usage
 ### For Screening Only
-Prepare the csv file containing 2 columns 'No' and 'smiles' of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
+Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
 
 The structure of the `root_dir` should be:
 ```
@@ -38,12 +38,12 @@ Generate 16 Fingerprints from ```OTAVA.csv``` , then concatenate and save it to 
 python get_fp.py OTAVA.csv OTAVA_FP.csv
 ```
 
-Select dataset file and its fingerprint file. The dimensional reduction via PCA will perform on fingerprint by ```prepca.model```.
-The graph and pca fingerprint feature of the selected dataset will be loaded to ```dataset.pkl```.
-The ```dataset_PCA16FPs.csv``` will be collected in ```PCA_FP``` folder and ```dataset.pkl``` will be collected in ```X``` folder.
+Select dataset file and its fingerprint file, pca model, and assign task as 'Screen'. The dimensional reduction via PCA will perform on fingerprint by ```prepca.model```.
+The graph and pca fingerprint feature of the selected dataset will be loaded to ```OTAVA.pkl```.
+The ```OTAVA_PCA16FPs.csv``` will be collected in ```PCA_FP``` folder and ```OTAVA.pkl``` will be collected in ```X``` folder.
 
 ```bash
-python featurized_screen.py OTAVA.csv OTAVA_FP.csv prepca.model
+python featurized_screen.py OTAVA.csv OTAVA_FP.csv prepca.model Screen
 ```
 Use ```pretrain.model``` to predict pIC50 of selected dataset .
 
