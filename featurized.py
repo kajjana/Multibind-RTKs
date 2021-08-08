@@ -44,9 +44,7 @@ import deepchem as dc
 
 
 def fitPCA(fp_df, model):
-    #print(fp_df.shape)
     result = model.transform(fp_df)
-    #print(result.shape)
     return result
 
 def concatResult(smi_df, pca_df):
@@ -75,7 +73,10 @@ def PCA_gen(data,FP):
     fp = pd.read_csv(FP, index_col=0).reset_index(drop=True)
     dataset = pd.read_csv(data, index_col=0)
     dataset =  pd.merge(dataset, fp, on=['smiles'], how='inner')
-    dataset_fp = dataset[dataset.columns[-30562:]]
+    if task == 'Train':
+        dataset_fp = dataset[dataset.columns[8:]]
+    elif task == 'Screen':
+        dataset_fp = dataset[dataset.columns[1:]]
     dataset_pca = fitPCA(dataset_fp, trainedPCA)
     dataset_pca_df = concatResult(dataset[['smiles']], dataset_pca)
     dataset_pca_df.to_csv('./PCA_FP/'+ data[:-4] +'_PCA16FPs.csv')
@@ -94,7 +95,10 @@ def loadData(df, index):
     featurizer = dc.feat.MolGraphConvFeaturizer(use_edges=True)
     out = featurizer.featurize(df.smiles)
     X = [torchData(out[i]) for i in index]
-    fingerprint = [df.iloc[i, -1460:].values.astype(np.float).tolist() for i in index]
+    if task == 'Train':
+        fingerprint = [df.iloc[i, 8:].values.astype(np.float).tolist() for i in index]
+    elif task == 'Screen':    
+        fingerprint = [df.iloc[i, 1:].values.astype(np.float).tolist() for i in index]
     for ind, data in enumerate(X):
         fing = fingerprint[ind]
         data.fing = torch.tensor([fing])
