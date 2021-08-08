@@ -43,7 +43,7 @@ The graph and pca fingerprint feature of the selected dataset will be loaded to 
 The ```OTAVA_PCA16FPs.csv``` will be collected in ```PCA_FP``` folder and ```OTAVA.pkl``` will be collected in ```X``` folder.
 
 ```bash
-python featurized_screen.py OTAVA.csv OTAVA_FP.csv prepca.model Screen
+python featurized.py OTAVA.csv OTAVA_FP.csv prepca.model Screen
 ```
 Use ```pretrain.model``` to predict pIC50 of selected dataset .
 
@@ -52,9 +52,9 @@ python predict.py pretrain.model OTAVA.pkl
 ```
 The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder.
  
-## For custom model training purpose'
-Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret',	'pIC50_ros1'
-of molecules. The smiles must have desalted via data preprocessing processes.
+## For custom model training purpose
+Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'
+of molecules respectively. The smiles must have desalted via data preprocessing processes.
 The structure of the `root_dir` should be:
 ```
 root_dir
@@ -72,7 +72,7 @@ root_dir
 ├── X
 ├── Model
 └── Results
-
+```
 
 After run the ```get_fp.py``` on ```train.csv``` and ```valid.csv```, select the training set and its fingerprint file then train the pca model with the training set and save the trained pca model to ```pca.model```. The model will be collected in ```Model``` folder.
 
@@ -82,10 +82,18 @@ python PCA.py train.csv train_FP.csv pca.model
 
 Run ```featurized.py``` with ```pca.model``` and assign task as 'Train' using training and validation set to generate its feature .pkl file 
 
-Use the ```train.pkl``` and ```test.pkl``` to train the model and save the custom model to ```model.model```. The model and ```deg_model.pkl``` will be saved in ```Model``` folder and ```model_MSE_result.csv``` will be saved in ```Results``` folder. 
+```bash
+python featurized.py train.csv train_FP.csv pca.model Train
+```
+
+Use the ```train.pkl``` and ```valid.pkl``` to train the model and save the custom model to ```model.model```. The model and ```deg_model.pkl``` will be saved in ```Model``` folder and ```model_MSE_result.csv``` will be saved in ```Results``` folder. 
 
 ```bash
-python train_model.py train.pkl test.pkl model.model
+python train_model.py train.pkl valid.pkl model.model
 ```
 Run ```predict.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset.
+
+```bash
+python predict.py model.model OTAVA.pkl
+```
 
