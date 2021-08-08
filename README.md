@@ -1,5 +1,14 @@
 # Multibind-RTKs
 ## Prerequisites
+
+Prerequisite libraries are listed 
+1) scikit-learn
+2) rdkit
+3) Pytorch
+4) Pytorch-Geometric
+5) jpype1
+6) openbabel
+
 ```
 pip install scikit-learn
 conda install -y -c rdkit rdkit
