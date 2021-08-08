@@ -11,7 +11,7 @@ conda install -y -c conda-forge jpype1=0.7.5
 conda install -y -c openbabel openbabel=2.4.1
 ```
 ## Usage
-### For Screening Only
+### For Screening Purpose
 Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
 
 The structure of the `root_dir` should be:
@@ -52,14 +52,35 @@ python predict.py pretrain.model OTAVA.pkl
 ```
 The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder.
  
-## Trained the custom model
-After run the ```get_fp.py``` on ```train.csv``` and ```test.csv```, select the train dataset and its fingerprint file then train the pca model on the train dataset and save the trained pca model to ```pca.model```. The model will be collected in ```Model``` folder.
+## For custom model training purpose'
+Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret',	'pIC50_ros1'
+of molecules. The smiles must have desalted via data preprocessing processes.
+The structure of the `root_dir` should be:
+```
+root_dir
+├── get_fp.py
+├── PCA.py
+├── featurized_screen.py
+├── train.py
+├── predict.py
+├── train.csv (training set)
+├── valid.csv (validation set)
+├── cdk-2.3.jar
+│ 
+├── Fingerprints
+├── PCA_FP
+├── X
+├── Model
+└── Results
+
+
+After run the ```get_fp.py``` on ```train.csv``` and ```valid.csv```, select the training set and its fingerprint file then train the pca model with the training set and save the trained pca model to ```pca.model```. The model will be collected in ```Model``` folder.
 
 ```bash
 python PCA.py train.csv train_FP.csv pca.model
 ```
 
-Run ```featurized_training.py``` with ```pca.model``` on train and test dataset to generate its feature .pkl file 
+Run ```featurized.py``` with ```pca.model``` and assign task as 'Train' using training and validation set to generate its feature .pkl file 
 
 Use the ```train.pkl``` and ```test.pkl``` to train the model and save the custom model to ```model.model```. The model and ```deg_model.pkl``` will be saved in ```Model``` folder and ```model_MSE_result.csv``` will be saved in ```Results``` folder. 
 
