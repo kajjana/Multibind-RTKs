@@ -12,7 +12,7 @@ conda install -y -c openbabel openbabel=2.4.1
 ```
 ## Usage
 ### For Screening Only
-Prepare the csv file containing only 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
+Prepare the csv file containing 2 columns 'No' and 'smiles' of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
 
 The structure of the `root_dir` should be:
 ```
