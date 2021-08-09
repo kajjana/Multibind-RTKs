@@ -32,7 +32,6 @@ root_dir
 ├── OTAVA.csv (screening dataset)
 ├── cdk-2.3.jar
 │ 
-├── Fingerprints
 ├── PCA_FP
 ├── X
 ├── Model
@@ -41,7 +40,7 @@ root_dir
 │   └── pretrain.model
 └── Results
 ```
-Generate 16 Fingerprints from ```OTAVA.csv``` , then concatenate and save it to ```OTAVA_FP.csv```. 16 fingerprints csv files will be collected in ```Fingerprints``` folder separately.
+Generate 16 Fingerprints from ```OTAVA.csv``` , then concatenate and save it to ```OTAVA_FP.csv```. 
 
 ```bash
 python get_fp.py OTAVA.csv OTAVA_FP.csv
@@ -62,7 +61,7 @@ python predict.py pretrain.model OTAVA.pkl
 The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder.
  
 ## For custom model training purpose
-Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'
+Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
 of molecules respectively. The smiles must have desalted via data preprocessing processes.
 The structure of the `root_dir` should be:
 ```
@@ -76,7 +75,6 @@ root_dir
 ├── valid.csv (validation set)
 ├── cdk-2.3.jar
 │ 
-├── Fingerprints
 ├── PCA_FP
 ├── X
 ├── Model
