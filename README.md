@@ -61,7 +61,7 @@ Use ```pretrain.model``` to predict pIC50 of selected dataset .
 ```bash
 python predict.py pretrain.model OTAVA.pkl AD
 ```
-The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder. The applicability domain analysis will be performed automatically.
+The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder. The applicability domain (AD) analysis will be performed automatically.
  
 ## For custom model training purpose
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
