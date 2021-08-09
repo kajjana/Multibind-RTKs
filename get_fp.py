@@ -1,23 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
 
 
 import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument('dataset', type=str)
-parser.add_argument('dataset_FP', type=str)
-args = parser.parse_args()
-
-csv = args.dataset
-save = args.dataset_FP
-
-
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
 from tqdm import tqdm, tqdm_notebook
@@ -30,8 +16,6 @@ from rdkit.Avalon import pyAvalonTools
 from jpype import isJVMStarted, startJVM, getDefaultJVMPath, JPackage
 import pybel
 
-
-# In[2]:
 
 
 #define fingerprint generating fuctions
@@ -132,10 +116,6 @@ def ob_fingerprint(smi, fp_type='FP2', nbit=307, output='bit'):
         vec = vec.astype(int)
         return vec
 
-
-# In[73]:
-
-
 def get_fingerprint(smi, fp_type, nbit=None, depth=None): #'bit'
     if fp_type in ["daylight", 
                    "extended", 
@@ -208,18 +188,19 @@ def feature_engineer(df, column_name, prefix):
     return data
 
 
-# In[97]:
+parser = argparse.ArgumentParser()
+parser.add_argument('dataset', type=str)
+parser.add_argument('dataset_FP', type=str)
+args = parser.parse_args()
 
+csv = args.dataset
+save = args.dataset_FP
 
-#import smiles_ns dataframe
+#import smiles dataframe
 ligand = pd.read_csv(csv, index_col=0)
 df = ligand[['smiles']].reset_index(drop=True)
 print(df.shape)
 df.head()
-
-
-# In[114]:
-
 
 tqdm.pandas()
 data_df = ligand[['smiles']]
@@ -253,18 +234,14 @@ for fp in all_fp_types:
     
     print("features are in engineering process")
     fp_data_eng = feature_engineer(sub_df, column_name=fp, prefix=fp+'FP')
-    fp_df = fp_data_eng.apply(pd.to_numeric, errors='ignore')
-    
-    fp_df.to_csv('./Fingerprints/' + fp + 'Fingerprint.csv',index=False)
-    print("Fingerprint Saved")
-    
+    fp_df = fp_data_eng.apply(pd.to_numeric, errors='ignore')   
+    #fp_df.to_csv('./Fingerprints/' + fp + 'Fingerprint.csv',index=False)
     data_df = pd.concat([data_df, fp_df], axis=1)
-    print('\n')
-    
+
 All = data_df
 All.to_csv(save)
-
-
+print("Fingerprint Saved")
+print('\n')
 print('Finished')
 
 
