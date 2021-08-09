@@ -28,7 +28,7 @@ The structure of the `root_dir` should be:
 root_dir
 ├── get_fp.py
 ├── featurized_screen.py
-├── predict.py
+├── predict-ad.py
 ├── OTAVA.csv (screening dataset)
 ├── cdk-2.3.jar
 │ 
@@ -38,6 +38,9 @@ root_dir
 │   ├── prepca.model 
 │   ├── deg_pretrain.pkl  
 │   └── pretrain.model
+├── AD
+│   ├── train_for_AD.csv 
+│   └── CVprediction_for_AD.csv
 └── Results
 ```
 Generate 16 Fingerprints from ```OTAVA.csv``` , then concatenate and save it to ```OTAVA_FP.csv```. 
@@ -56,9 +59,9 @@ python featurized.py OTAVA.csv OTAVA_FP.csv prepca.model Screen
 Use ```pretrain.model``` to predict pIC50 of selected dataset .
 
 ```bash
-python predict.py pretrain.model OTAVA.pkl
+python predict.py pretrain.model OTAVA.pkl AD
 ```
-The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder.
+The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder. The applicability domain analysis will be performed automatically.
  
 ## For custom model training purpose
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
@@ -70,7 +73,7 @@ root_dir
 ├── PCA.py
 ├── featurized_screen.py
 ├── train.py
-├── predict.py
+├── predict-ad.py
 ├── train.csv (training set)
 ├── valid.csv (validation set)
 ├── cdk-2.3.jar
@@ -98,9 +101,9 @@ Use the ```train.pkl``` and ```valid.pkl``` to train the model and save the cust
 ```bash
 python train_model.py train.pkl valid.pkl model.model
 ```
-Run ```predict.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset.
+Run ```predict.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset. The AD analysis does not support the custom model.
 
 ```bash
-python predict.py model.model OTAVA.pkl
+python predict.py model.model OTAVA.pkl noAD
 ```
 
