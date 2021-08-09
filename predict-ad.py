@@ -284,23 +284,26 @@ if AD == 'AD':
                                           'erbB2': 0.6, 'ret': 0.64, 'ros1': 0.513}}
     inAD_smi = {}
     for t,tar in enumerate(target_list):
+        tar_outAD = []
         inAD = test[(test.similarity >= AD_param['sim'])&(test['RMSE_'+tar+'_neighbors'] < AD_param['error'][tar])]
-        print('inside',tar,'domain:',inAD.shape[0])
-        inAD_smi[tar] = inAD.smiles
         inAD = inAD.copy()
         try:
             inAD.loc[:,tar+'_domain'] = 'inside'
+            print('inside',tar,'domain:',inAD.shape[0])
         except:
-            inAD[tar+'_domain'] = 'outside'
+            print('inside',tar,'domain:',inAD.shape[0],'(ALL OUTSIDE)')
+            tar_outAD.append(tar)
         if t == 0:
             tk_inAD = inAD
         else:
             tk_inAD = pd.merge(tk_inAD,inAD, how='outer')
-
-    test_pred = pd.read_csv(save_csv,index_col=0)
-    test_AD = pd.merge(test_pred,tk_inAD, how='outer')
+            
+    for tar in tar_outAD:
+        tk_inAD.loc[:,tar+'_domain'] = np.nan
+        
+    test_AD = pd.merge(test,tk_inAD, how='outer')
     for tar in target_list:
-        test_AD.replace({tar+'_domain': {np.nan: 'outside'}},inplace=True)
+        test_AD[tar+'_domain'].replace(np.nan, 'outside',inplace=True) 
     col_name = ['RMSE_'+tar+'_neighbors' for tar in target_list]
     test_AD.drop(columns=col_name, inplace=True)
     test_AD.drop(columns=['similarity'], inplace=True)
