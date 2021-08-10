@@ -23,6 +23,14 @@ conda install -y -c openbabel openbabel=2.4.1
 ### For Screening Purpose
 Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
 
+
+| | smiles
+------------ | -------------
+0 | CN1CCN(CCCN2c3ccccc3Sc3ccc(C(F)(F)F)cc32)CC1
+1 | Nc1ccc2oc(-c3ccccc3)cc(=O)c2c1
+2 | O=c1cc(-c2ccccc2)oc2ccc(O)cc12
+3 | COCc1cccc2[nH]c(-c3n[nH]c4ncc(-c5cc[nH]c5)cc34)nc12
+
 The structure of the `root_dir` should be:
 ```
 root_dir
@@ -66,6 +74,15 @@ The ```Result_OTAVA.csv``` that contain the predicted values will be collected i
 ## For custom model training purpose
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
 of molecules respectively. The smiles must have desalted via data preprocessing processes.
+
+| | smiles | pIC50_erbB4|pIC50_egfr|pIC50_met|pIC50_alk|pIC50_erbB2|pIC50_ret|pIC50_ros1
+------------ | ------------- | -------------| -------------| -------------| -------------| -------------| -------------| -------------
+0 |CS(=O)(=O)CCNCCCCOc1ccc2ncnc(Nc3ccc(F)c(Cl)c3)c2c1|		|7.7|			| |6.68| | 	
+1	|O=C(Nc1ccc(Oc2ccnc3cc(-c4ccc(CN5CCNCC5)cc4)sc23)c(F)c1)N1CCN(c2ccccc2)C1=O|			7.66		|		| | | | | 
+2	|C=CC(=O)N1CCC[C@@H](Oc2nc(Nc3ccc(N4CCC(N5CCN(C)CC5)CC4)c(C)c3)c(C(N)=O)nc2CC)C1|		|8.92		|			| | | |
+3	|CN[C@@H]1C[C@H]2O[C@@](C)([C@@H]1OC)n1c3ccccc3c3c4c(c5c6ccccc6n2c5c31)C(=O)NC4	|	7.55	|			|	|	8.77|		7.47|		9.34|		10.15
+
+
 The structure of the `root_dir` should be:
 ```
 root_dir
@@ -101,7 +118,7 @@ Use the ```train.pkl``` and ```valid.pkl``` to train the model and save the cust
 ```bash
 python train_model.py train.pkl valid.pkl model.model
 ```
-Run ```predict.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset. The AD analysis does not support the custom model.
+Run ```predict-ad.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset. The AD analysis does not support the custom model.
 
 ```bash
 python predict.py model.model OTAVA.pkl noAD
