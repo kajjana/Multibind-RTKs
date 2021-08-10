@@ -29,7 +29,7 @@ Prepare the csv file containing index and 'smiles' column of screening molecules
 0 | CN1CCN(CCCN2c3ccccc3Sc3ccc(C(F)(F)F)cc32)CC1
 1 | Nc1ccc2oc(-c3ccccc3)cc(=O)c2c1
 2 | O=c1cc(-c2ccccc2)oc2ccc(O)cc12
-3 | COCc1cccc2[nH]c(-c3n[nH]c4ncc(-c5cc[nH]c5)cc34)nc12
+3 | COC(=O)c1ccc(NC(=O)CCC(=O)O)cc1
 
 The structure of the `root_dir` should be:
 ```
@@ -70,7 +70,15 @@ Use ```pretrain.model``` to predict pIC50 of selected dataset .
 python predict.py pretrain.model OTAVA.pkl AD
 ```
 The ```Result_OTAVA.csv``` that contain the predicted values will be collected in ```Results``` folder. The applicability domain (AD) analysis will be performed automatically.
- 
+
+The output will be as following
+||smiles|predicted_pIC50_erbB4|predicted_pIC50_egfr|predicted_pIC50_met|predicted_pIC50_alk|predicted_pIC50_erbB2|predicted_pIC50_ret|predicted_pIC50_ros1|erbB4_domain|egfr_domain|met_domain|alk_domain|erbB2_domain|ret_domain|ros1_domain
+------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------
+0|CN1CCN(CCCN2c3ccccc3Sc3ccc(C(F)(F)F)cc32)CC1|5.22|4.52|6.2|6.23|4.68|6.33|6.64|outside|outside|outside|outside|outside|outside|outside
+1|Nc1ccc2oc(-c3ccccc3)cc(=O)c2c1|4.99|5.73|5.03|6.1|5.09|5.25|6.42|outside|outside|outside|outside|outside|outside|outside
+2|O=c1cc(-c2ccccc2)oc2ccc(O)cc12|6.38|8.7|6.04|5.77|5.7|4.51|6.89|outside|outside|outside|outside|outside|outside|outside
+3|COC(=O)c1ccc(NC(=O)CCC(=O)O)cc1|4.79|4.05|5.64|5.89|4.61|5.57|6.2|outside|inside|outside|outside|outside|outside|outside
+
 ## For custom model training purpose
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
 of molecules respectively. The smiles must have desalted via data preprocessing processes.
@@ -121,6 +129,12 @@ python train_model.py train.pkl valid.pkl model.model
 Run ```predict-ad.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset. The AD analysis does not support the custom model.
 
 ```bash
-python predict.py model.model OTAVA.pkl noAD
+python predict-ad.py model.model OTAVA.pkl noAD
 ```
-
+The output will be as following
+||smiles|predicted_pIC50_erbB4|predicted_pIC50_egfr|predicted_pIC50_met|predicted_pIC50_alk|predicted_pIC50_erbB2|predicted_pIC50_ret|predicted_pIC50_ros1
+------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ |------------ 
+0|CN1CCN(CCCN2c3ccccc3Sc3ccc(C(F)(F)F)cc32)CC1|5.22|4.52|6.2|6.23|4.68|6.33|6.64
+1|Nc1ccc2oc(-c3ccccc3)cc(=O)c2c1|4.99|5.73|5.03|6.1|5.09|5.25|6.42
+2|O=c1cc(-c2ccccc2)oc2ccc(O)cc12|6.38|8.7|6.04|5.77|5.7|4.51|6.89
+3|COC(=O)c1ccc(NC(=O)CCC(=O)O)cc1|4.79|4.05|5.64|5.89|4.61|5.57|6.2
