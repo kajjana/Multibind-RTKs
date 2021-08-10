@@ -79,7 +79,7 @@ The output will be as following
 2|O=c1cc(-c2ccccc2)oc2ccc(O)cc12|6.38|8.7|6.04|5.77|5.7|4.51|6.89|outside|outside|outside|outside|outside|outside|outside
 3|COC(=O)c1ccc(NC(=O)CCC(=O)O)cc1|4.79|4.05|5.64|5.89|4.61|5.57|6.2|outside|inside|outside|outside|outside|outside|outside
 
-## For custom model training purpose
+### For custom model training purpose
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
 of molecules respectively. The smiles must have desalted via data preprocessing processes.
 
