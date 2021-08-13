@@ -2,23 +2,13 @@
 ## Prerequisites
 
 Prerequisite libraries are listed 
-1) scikit-learn
-2) rdkit
-3) Pytorch
-4) Pytorch-Geometric
-5) jpype1
-6) openbabel
+1) [scikit-learn](http://scikit-learn.org/stable/)
+2) [RDKit](https://www.rdkit.org/docs/Install.html)
+3) [PyTorch](http://pytorch.org)
+4) [Pytorch-Geometric](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html)
+5) [jpype1](https://jpype.readthedocs.io/en/devel/install.html)
+6) [openbabel](https://openbabel.org/docs/dev/Installation/install.html#install-binaries)
 
-```
-pip install scikit-learn
-conda install -y -c rdkit rdkit
-pip3 install torch==1.8.1+cu102 torchvision==0.9.1+cu102 torchaudio===0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
-pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
-pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
-pip install torch-geometric
-conda install -y -c conda-forge jpype1=0.7.5
-conda install -y -c openbabel openbabel=2.4.1
-```
 ## Usage
 ### For Screening Purpose
 Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
