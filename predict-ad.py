@@ -303,7 +303,10 @@ if AD == 'AD':
         
     test_AD = pd.merge(test,tk_inAD, how='outer')
     for tar in target_list:
-        test_AD[tar+'_domain'].replace(np.nan, 'outside',inplace=True) 
+        try:
+            test_AD[tar+'_domain'].replace(np.nan, 'outside',inplace=True) 
+        except:
+            pass
     col_name = ['RMSE_'+tar+'_neighbors' for tar in target_list]
     test_AD.drop(columns=col_name, inplace=True)
     test_AD.drop(columns=['similarity'], inplace=True)
@@ -313,7 +316,3 @@ if AD == 'AD':
 else:
     print('No AD analysis')
     print('Finish')
-
-
-
-
