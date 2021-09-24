@@ -11,7 +11,7 @@ Prerequisite libraries are listed
 
 ## Usage
 ### Screening 
-Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use OTAVA.csv as a sample dataset.
+Prepare the csv file containing index and 'smiles' column of screening molecules. The smiles must have desalted via data preprocessing processes. In this case, we use sample.csv as a sample dataset.
 
 
 | | smiles
