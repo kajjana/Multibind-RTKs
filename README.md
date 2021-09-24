@@ -1,6 +1,6 @@
 # Multibind-RTKs
 
-<img src="workflow.png" align="center">
+<img src="7TK-overview.png" align="center">
 
 ## Prerequisites
 
