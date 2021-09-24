@@ -1,4 +1,7 @@
 # Multibind-RTKs
+
+<img src="workflow.png" align="center">
+
 ## Prerequisites
 
 Prerequisite libraries are listed 
