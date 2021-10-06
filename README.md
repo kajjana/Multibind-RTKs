@@ -129,10 +129,13 @@ Use the ```train.pkl``` and ```valid.pkl``` to train the model and save the cust
 ```bash
 python train_model.py train.pkl valid.pkl model.model
 ```
+
+To utilized your custom model. You have to follow the step in Screening scenario but using your custom model to screen the dataset. 
+
 Run ```predict-ad.py``` but use the custom model instead of the provided pretrain model to predict pIC50 of selected dataset. The AD analysis does not support the custom model.
 
 ```bash
-python predict-ad.py model.model OTAVA.pkl noAD
+python predict-ad.py model.model sample2.pkl noAD
 ```
 The output will be as following
 ||smiles|predicted_pIC50_erbB4|predicted_pIC50_egfr|predicted_pIC50_met|predicted_pIC50_alk|predicted_pIC50_erbB2|predicted_pIC50_ret|predicted_pIC50_ros1
