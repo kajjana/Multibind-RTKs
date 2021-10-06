@@ -82,7 +82,7 @@ The output will be as following
 2|CN[C@@H]1C[C@H]2O[C@@](C)([C@@H]1OC)n1c3ccccc3c3c4c(c5c6ccccc6n2c5c31)C(=O)NC4	|8.13|	7.95|	7.33	|9.61|	7.84	|10.07	|11.19	|outside|	inside|	outside|	outside|	inside	|outside	|outside
 3|Cc1cccc(Nc2ncnc3ccc(Br)cc23)c1|	6.87	|6.49|	7.36|	5.99	|5.8	|6.27|	6.87	|inside	|inside	|outside|	outside	|outside	|outside	|outside
 
-### Custom Codel Training 
+### Custom Model Training 
 Prepare the csv file containing 9 columns consist of index, 'smiles', 'pIC50_erbB4',	'pIC50_egfr',	'pIC50_met',	'pIC50_alk',	'pIC50_erbB2',	'pIC50_ret', and	'pIC50_ros1'.
 of molecules respectively. The smiles must have desalted via data preprocessing processes.
 
