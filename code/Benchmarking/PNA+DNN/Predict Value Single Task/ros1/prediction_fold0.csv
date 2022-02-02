@@ -1,0 +1,12 @@
+,SMILES_NS,pIC50,target,predicted_pIC50
+0,Cc1n[nH]c2ccc(-c3cc(N[C@@H](CO)c4ccccc4)cnc3-c3cc(Cl)ccc3O)cc12,6.56,ros1,6.99
+1,CN1C(=O)[C@@H](N2CCc3cn(Cc4ccccc4)nc3C2=O)COc2ccccc21,6.0,ros1,5.61
+2,CC(C)S(=O)(=O)c1ccccc1Nc1nc(N/N=C/c2cccc(C(F)(F)F)c2)ncc1Cl,8.3,ros1,8.38
+3,OC1CCN(c2cc(-c3cnc4ccc(N5CCC[C@@H]5c5cccc(F)c5)nn34)ccn2)CC1,6.68,ros1,7.14
+4,O=C(O)CN1CCN(c2cc(-c3cnc4ccc(N5CCC[C@@H]5c5cccc(F)c5)nn34)ccn2)CC1,7.22,ros1,7.31
+5,Cc1cnc(Nc2ncccc2OC(C)c2cccc(C(=O)NCc3ccc(F)c(Cl)c3)c2)s1,5.02,ros1,5.75
+6,COc1cc(N2CCCNC2=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2NC(C)=O)n1,8.28,ros1,8.55
+7,COc1nc(N2CC(O)C2)ccc1Nc1ncc(Cl)c(Nc2ccccc2NS(C)(=O)=O)n1,5.8,ros1,5.75
+8,COc1cc(CNC(=O)c2cccc(C(C)Oc3ccnc(Nc4cnn(C)c4)c3)c2)cc(OC)c1OC,6.39,ros1,5.62
+9,COc1cc(C)cc(-c2nn(C)cc2-c2cc(NCCCCO)nc(-c3cccnc3)n2)c1,7.2,ros1,6.86
+10,COc1cc(C)cc(-c2nn(CC#N)cc2-c2cc(NCCN3CCOCC3)nc(-c3cccnc3)n2)c1,6.83,ros1,7.31
