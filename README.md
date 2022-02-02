@@ -1,9 +1,13 @@
 # Multibind-RTKs
 Assisting Multi-Targeted Ligand Affinity Prediction of Receptor Tyrosine Kinases Associated Non-Small Cell Lung Cancer Treatment with Multitasking Principal Neighbourhood Aggregation
 
-Fahsai Nakarin,<sup>†,‡</sup>Kajjana Boonpalit,<sup>†,‡</sup>Jiramet Kinchagawat,<sup>†</sup>Patcharapol Wachiraphan,<sup>†</sup>and Sarana Nutanong<sup>∗,†</sup>
+Fahsai Nakarin,<sup>1,‡,*</sup>Kajjana Boonpalit,<sup>1,‡</sup>Jiramet Kinchagawat,<sup>1</sup>Patcharapol Wachiraphan,<sup>1</sup>Thanyada Rungrotmongkol,<sup>2,3</sup> and Sarana Nutanong<sup>1,†</sup>
 
-† School of Information Science and Technology, Vidyasirimedhi Institute of Science and Technology (VISTEC), Rayong 21210, Thailand
+1 School of Information Science and Technology, Vidyasirimedhi Institute of Science and Technology (VISTEC), Rayong 21210, Thailand
+
+2 Biocatalyst and Environmental Biotechnology Research Unit, Department of Biochemistry, Faculty of Science, Chulalongkorn University, Bangkok 10330, Thailand
+
+3 Program in Bioinformatics and Computational Biology, Graduate School, Chulalongkorn University, Bangkok 10330, Thailand
 
 ‡ Contributed equally to this work
 
