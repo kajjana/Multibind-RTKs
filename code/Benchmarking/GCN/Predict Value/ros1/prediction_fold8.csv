@@ -1,0 +1,13 @@
+SMILES_NS,pIC50,yhat
+OC[C@H](Nc1cnc(-c2cc(Cl)ccc2O)c(-c2ccc3cnccc3c2)c1)c1ccccc1,6.77,-1.7221959829330444
+CC(C)S(=O)(=O)c1ccccc1Nc1nc(N/N=C/c2ccc(C(F)(F)F)cc2)ncc1Cl,8.47,-0.12909649312496185
+C[C@@H](Oc1cc(-c2cnn(C3CCNCC3)c2)cnc1N)c1c(Cl)ccc(F)c1Cl,9.15,0.2458195984363556
+COc1cc(N2CCN(CCN(C)C)C2=O)ccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1,9.37,0.8727618455886841
+COc1cc(-c2nc(CN3CCC(C)CC3)cs2)ccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1,8.07,0.6870171427726746
+Cc1ccc(CNC(=O)c2cccc(C(C)Oc3ccnc(Nc4cn(C)nc4C)c3)c2)cc1,5.85,-1.2453051805496216
+COc1ccc(CNC(=O)c2cccc(C(C)Oc3ccnc(Nc4cnn(C5CCNCC5)c4)c3)c2)cc1OC,6.43,-1.158568263053894
+COc1nc(N2CCSCC2)ccc1Nc1ncc(Cl)c(Nc2ccccc2NS(C)(=O)=O)n1,5.21,-0.005275238305330277
+CC(Oc1ccnc(NN2CCN(C)CC2)c1)c1cccc(C(=O)NCc2ccc(Cl)c(C(F)(F)F)c2)c1,5.04,-0.5350354909896851
+CC(Oc1cccnc1Nc1cnn(C)c1)c1cccc(C(=O)NCc2ccccc2S(=O)(=O)C(C)C)c1,5.06,-0.7712365388870239
+COCCCNc1cc(-c2cnc(C)nc2-c2ccc(Cl)cc2Cl)nc(-c2cccnc2)n1,6.45,-0.3202351033687592
+Cc1cc(O)cc(-c2c(-c3cc(N4CC(O)C4)nc(-c4cccnc4)n3)cnn2C)c1,7.25,-0.34984228014945984

@@ -1,0 +1,16 @@
+SMILES_NS,pIC50,yhat
+C=CS(=O)(=O)Nc1cccc(-c2ccc(C(N)=O)c3[nH]c(C)c(C)c23)c1C,8.0,5.490914344787598
+CCC(=O)Nc1cc2c(Nc3ccc(NS(=O)(=O)c4ccccc4)c(F)c3)ncnc2cc1OC,6.23,5.877570152282715
+C=CC(=O)N1CCC[C@@H](n2nc(-c3ccc(OCc4ccccn4)c(Cl)c3)c3c(N)ncnc32)C1,8.49,6.128907680511475
+CC(C)(C(=O)NCCn1ccc2ncnc(Nc3ccc(Oc4cccc(Cl)c4)c(Cl)c3)c21)S(C)(=O)=O,6.8,5.9824466705322275
+OC[C@H](Nc1cnc(-c2cc(Cl)ccc2O)c(-c2ccc3cnccc3c2)c1)c1ccccc1,8.3,5.451406478881836
+C=CC(=O)Nc1ccc2ncnc(Nc3cccc(Br)c3)c2c1,7.92,5.702200889587402
+CC(C)([O-])CC(=O)NCCn1ccc2ncnc(Nc3ccc(Oc4cccc(C(F)(F)F)c4)c(Cl)c3)c21,6.59,5.73900318145752
+CCOc1cc2ncnc(Nc3ccc4c(cnn4Cc4ccccc4)c3)c2cc1NC(=O)/C=C/CN1CCN(C)CC1,8.4,6.521556854248048
+C=CC(=O)N1CCC([C@@H]2CCNc3c(C(N)=O)c(-c4ccc(Oc5ccccc5)cc4)nn32)CC1,8.8,6.16708517074585
+C=CC(=O)Nc1cc2c(Nc3ccc(F)c(Cl)c3)ncnc2s1,8.4,5.6930832862854
+CN(C)c1cc2c(Nc3ccc4c(cnn4Cc4ccccc4)c3)ncnc2cn1,7.7,5.59640645980835
+COCC(=O)N1CCO[C@@H](c2nc(-c3ccc(C(=O)Nc4cc(C(F)(F)F)ccn4)cc3F)c3c(N)nccn23)C1,6.77,5.917050361633301
+COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1NC(=O)/C(F)=C/CN(C)C,7.64,6.081289768218994
+CCC(=O)Nc1cc2c(Nc3ccc(NS(=O)(=O)c4ccccc4)nc3)ncnc2cc1OC,6.31,5.984384059906006
+Cc1c(-c2ccc(C(N)=O)c3[nH]c4cc(C(C)(C)O)ccc4c23)cccc1-n1cnc2ccccc2c1=O,7.3,5.8415069580078125
